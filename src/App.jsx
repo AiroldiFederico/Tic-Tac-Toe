@@ -1,10 +1,20 @@
+// Hooks
 import { useState } from "react";
+
+// style
 import "./style/App.css";
+
+//components
+import CoreComp from "./components/CoreComponent";
 
 function App() {
   return (
     <>
-      <p className="text-3xl font-bold">Ciao Federico!</p>
+      <main main className="bg-[url('public/wallpaper.jpg')] bg-cover bg-no-repeat  w-screen h-screen flex justify-center items-center flex-col gap-10">
+        <h1 className="text-4xl font-serif text-cyan-950 font-black">Tic Tac Toe</h1>
+        <CoreComp></CoreComp>
+      </main>
+
     </>
   );
 }
