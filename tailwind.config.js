@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Josefin Sans", "sans-serif"], // Aggiungi qui il tuo font
+      },
+    },
   },
   plugins: [],
 };
+
+// font-family: 'Josefin Sans', sans-serif;
