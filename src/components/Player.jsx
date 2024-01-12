@@ -1,29 +1,47 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ initialName, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [playerName, setPlayerName] = useState(initialName);
+
+  let editPlayerName = <span>{playerName}</span>;
+  let btnCaption = "EDIT";
 
   function handleEditClick() {
-    setIsEditing(true);
+    setIsEditing((editing) => !editing); // best practice
+    // setIsEditing(!isEditing);
   }
 
-  let playerName = <span>{name}</span>;
+  function handleChange(event) {
+    setPlayerName(event.target.value);
+  }
 
   if (isEditing) {
-    playerName = <input type="text" required 
-    className="w-24 bg-blue-200 text-slate-800  rounded-md focus:border-blue-500 focus:outline-none"
-    />;
+    editPlayerName = (
+      <input
+        type="text"
+        required
+        value={playerName}
+        onChange={handleChange}
+        className="w-auto max-w-20 bg-slate-300 text-slate-800 px-1 rounded-md focus:border-blue-500 focus:outline-none"
+      />
+    );
+
+    btnCaption = "SAVE";
   }
 
   return (
-    <li className="m-0 p-0 flex gap-8">
-      <span className="flex gap-3">
-
-        {playerName}
+    <li className="m-0 p-0 flex gap-8 w-56 justify-between">
+      <span className="flex w-32 justify-between">
+        {editPlayerName}
         <span>{symbol}</span>
-
       </span>
-      <button onClick={handleEditClick}>Edit</button>
+      <button
+        onClick={handleEditClick}
+        className="text-slate-800 bg-blue-200 opacity-50 font-black shadow-inner px-1 rounded-lg"
+      >
+        {btnCaption}
+      </button>
     </li>
   );
 }
