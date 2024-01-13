@@ -31,7 +31,7 @@ export default function Player({ initialName, symbol }) {
   }
 
   return (
-    <li className="m-0 p-0 flex gap-8 w-52 justify-between">
+    <li className="m-0 p-0 flex gap-8 w-48 justify-between">
       <span className="flex w-24 justify-between">
         {editPlayerName}
         <span>{symbol}</span>
