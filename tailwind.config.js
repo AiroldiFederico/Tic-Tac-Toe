@@ -5,10 +5,11 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Josefin Sans", "sans-serif"], // Aggiungi qui il tuo font
+        roboto: ["Roboto Slab", "sans-serif"],
       },
     },
   },
   plugins: [],
 };
 
-// font-family: 'Josefin Sans', sans-serif;
+
