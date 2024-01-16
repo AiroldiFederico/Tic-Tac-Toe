@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol, isActive }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
 
@@ -31,7 +31,7 @@ export default function Player({ initialName, symbol }) {
   }
 
   return (
-    <li className="m-0 p-0 flex gap-8 w-48 justify-between">
+    <li className="m-0 p-0 flex gap-4 justify-between  {isActive ? 'active' : undefine}">
       <span className="flex w-24 justify-between">
         {editPlayerName}
         <span>{symbol}</span>
