@@ -31,7 +31,7 @@ export default function Player({ initialName, symbol, isActive }) {
   }
 
   return (
-    <li className="m-0 p-0 flex gap-4 justify-between  {isActive ? 'active' : undefine}">
+    <li className={`m-0 p-1 flex gap-4 justify-between ${isActive ? ' bg-yellow-100 shadow rounded-lg' : ''}`}>
       <span className="flex w-24 justify-between">
         {editPlayerName}
         <span>{symbol}</span>
