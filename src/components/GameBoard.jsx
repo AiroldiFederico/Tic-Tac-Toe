@@ -47,8 +47,11 @@ export default function GameBoard({onSelectSquare, turns}) {
               //singolo quadrato
               <li key={colIndex} className="bg-slate-200 m-0 border-gray-950 border w-28 h-28 rounded">
 
-                <button onClick={() => onSelectSquare(rowIndex, colIndex)} 
-                className="w-full h-full font-serif text-6xl font-black text-gray-900">
+                <button 
+                  onClick={() => onSelectSquare(rowIndex, colIndex)} 
+                  className="w-full h-full font-serif text-6xl font-black text-gray-900" 
+                  disabled={ playerSymbol !== null }
+                >
                   {playerSymbol}
                 </button>
 
