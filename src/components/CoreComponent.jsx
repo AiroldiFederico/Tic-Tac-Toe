@@ -5,23 +5,28 @@ import Log from "./Log";
 // Hooks
 import { useState } from "react";
 
+function deriveActivePlayer(gameTurns) {
+
+  let currentPlayer = "X";
+
+  if (gameTurns.length > 0 && gameTurns[0].player === "X") {
+    currentPlayer = "O";
+  };
+
+  return currentPlayer;
+};
+
 
 export default function CoreComp() {
 
-  const [activePlayer, setActivePlayer] = useState("X");
   const [gameTurns, setGameTurns] = useState([]);
+  const activePlayer = deriveActivePlayer(gameTurns)
 
   function handleSelectSquare(rowIndex, colIndex) {
 
-    setActivePlayer((curActivePlayer) => curActivePlayer === "X" ? "O" : "X");
-
     setGameTurns(prevTurns => {
 
-      let currentPlayer = "X";
-
-      if (prevTurns.length > 0 && prevTurns[0].player === "X") {
-        currentPlayer = "O";
-      };
+      const currentPlayer = deriveActivePlayer(prevTurns)
 
       const updateTurns = [
           { square: { row: rowIndex, col: colIndex}, player: currentPlayer},
