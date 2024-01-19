@@ -1,43 +1,12 @@
 //import
 import { useState } from "react";
 
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export default function GameBoard({onSelectSquare, turns}) {
-
-  // LIFT UP 
-  // const [GameBoard, setGameBoard] = useState(oldGameBoard);
-
-  // function handleSelectSquare(rowIndex, colIndex) {
-  //   setGameBoard((prevGameBoard) => {
-  //     const updateBoard = [
-  //       ...prevGameBoard.map((innerArray) => [...innerArray]),
-  //     ]; //per best practices duplichiamo l'array e manipoliamo la copia
-  //     updateBoard[rowIndex][colIndex] = activePlayerSymbol;
-  //     return updateBoard;
-  //   });
-
-  //   onSelectSquare();
-  // }
-
-  let gameBoard = initialGameBoard;
-
-  for (const turn of turns) {
-
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
+export default function GameBoard({onSelectSquare, board}) {
 
   return (
     <ol className="m-0 p-0 flex gap-3 justify-between flex-col">
 
-      {gameBoard.map((row,rowIndex) => (
+      {board.map((row,rowIndex) => (
 
           //tre quadrati
           <li key={rowIndex} className="flex gap-3 justify-between m-0">
