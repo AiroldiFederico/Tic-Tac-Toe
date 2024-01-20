@@ -2,6 +2,7 @@
 import GameBoard from "./GameBoard";
 import Player from "./Player";
 import Log from "./Log";
+import GameOver from "./GameOver";
 import { WINNING_COMBINATIONS } from "../winning-combinations";
 
 // Hooks
@@ -31,7 +32,7 @@ export default function CoreComp() {
   const [gameTurns, setGameTurns] = useState([]);
   const activePlayer = deriveActivePlayer(gameTurns)
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
 
   for (const turn of gameTurns) {
 
@@ -57,6 +58,8 @@ export default function CoreComp() {
     }
   };
 
+  const hasDraw = gameTurns.length === 9 && !winner;
+
   function handleSelectSquare(rowIndex, colIndex) {
 
     setGameTurns(prevTurns => {
@@ -70,6 +73,10 @@ export default function CoreComp() {
 
       return updateTurns;
     });
+  }
+
+  function handleRestart() {
+    setGameTurns([]);
   }
 
   return (
@@ -88,7 +95,9 @@ export default function CoreComp() {
           />
         </div>
 
-        {winner && <p>YOU WON, {winner}!</p>}
+        { (winner || hasDraw) && (
+          <GameOver winner={winner} onRestart={handleRestart}/>
+        )}
 
       </section>
 
