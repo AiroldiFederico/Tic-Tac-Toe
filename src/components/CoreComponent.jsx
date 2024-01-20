@@ -133,11 +133,11 @@ export default function CoreComp() {
           />
         </div>
 
-        { (winner || hasDraw) && (
-          <GameOver winner={winner} onRestart={handleRestart}/>
-        )}
-
       </section>
+
+      { (winner || hasDraw) && (
+        <GameOver winner={winner} onRestart={handleRestart}/>
+      )}
 
       <Log turns={gameTurns}/>
     </>

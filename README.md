@@ -1,15 +1,24 @@
-# TEMPLATE REACT
-# Progetto di Federico Airoldi
 
-Questo repository contiene un progetto di Federico Airoldi. Lo scopo del progetto è quello di fornire un ambiente pratico per esplorare e apprendere varie tecnologie e librerie nel campo dello sviluppo web.
+# Tic Tac Toe - Progetto di Federico Airoldi
+
+Questo repository contiene il progetto Tic Tac Toe di Federico Airoldi, un'applicazione web sviluppata come esercizio pratico per approfondire la conoscenza di React, Tailwind e altre tecnologie moderne di sviluppo web. Il gioco è una reinterpretazione del classico Tic Tac Toe (Tris), con funzionalità aggiuntive per migliorare l'esperienza utente e la gestione del gioco.
+
+## Funzionalità
+
+- **Cambio Nome Giocatori**: Possibilità di personalizzare i nomi dei giocatori.
+- **Gestione dei turni**: Cambio del turno con simbolo e player opposto
+- **Schermata di Game Over/WIN**: Visualizzazione di una schermata di game over con il vincitore o un pareggio.
+- **Registro delle Mosse**: Log delle mosse effettuate durante la partita.
+- **Gestione del Pareggio**: Rilevamento e gestione di situazioni di pareggio.
+- **Rematch**: Opzione per avviare rapidamente una nuova partita dopo il termine di una.
 
 ## Inizio
 
-Queste istruzioni ti forniranno una copia del progetto in esecuzione sul tuo computer locale a scopo di sviluppo e test. Vedi la sezione "Distribuzione" per note su come distribuire il progetto su un sistema live.
+Per avviare il progetto Tic Tac Toe sul tuo computer locale, segui queste istruzioni.
 
 ### Prerequisiti
 
-Cosa ti serve per installare il software e come installarlo:
+Assicurati di avere installato:
 
 ```
 Node.js
@@ -18,40 +27,34 @@ NPM (Node Package Manager)
 
 ### Installazione
 
-Una serie di esempi passo passo che ti dicono come far partire un ambiente di sviluppo in esecuzione:
+Esegui i seguenti passi per configurare l'ambiente di sviluppo:
 
-Clona il repository:
+1. Clona il repository:
+   ```
+   git clone {link del repository}
+   ```
 
-```
-git clone {link repo}
-```
+2. Naviga alla cartella del progetto:
+   ```
+   cd nome-repo
+   ```
 
-Naviga alla cartella del progetto:
+3. Installa i pacchetti NPM:
+   ```
+   npm install
+   ```
 
-```
-cd tua-repo
-```
-
-Installa i pacchetti NPM:
-
-```
-npm install
-```
-
-Avvia il server di sviluppo:
-
-```
-npm run dev
-```
+4. Avvia il server di sviluppo:
+   ```
+   npm run dev
+   ```
 
 ## Pacchetti Installati
 
-Elenco dei principali pacchetti installati in questo progetto:
-
-- React: Una libreria JavaScript per costruire interfacce utente.
-- Vite: Un nuovo strumento di build front-end che migliora significativamente l'esperienza di sviluppo.
-- Tailwind CSS: Un framework CSS utility-first per costruire rapidamente design personalizzati.
-- Axios: Un client HTTP basato su promesse per il browser e node.js.
+- React
+- Vite
+- Tailwind CSS
+- Axios
 - postcss
 - autoprefixer
 - FontAwesome
@@ -64,4 +67,5 @@ Elenco dei principali pacchetti installati in questo progetto:
 
 ## Licenza
 
-Questo progetto non ha licenze
+Questo progetto non ha licenze.
+
