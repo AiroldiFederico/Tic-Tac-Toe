@@ -29,6 +29,10 @@ const initialGameBoard = [
 
 export default function CoreComp() {
 
+  const [players, setPlayers] = useState({
+    X: 'Player 1',
+    O: 'Player 2'
+  });
   const [gameTurns, setGameTurns] = useState([]);
   const activePlayer = deriveActivePlayer(gameTurns)
 
@@ -54,7 +58,7 @@ export default function CoreComp() {
       firstSquareSymbol === secondSquareSymbol &&
       secondSquareSymbol === thirdSquareSymbol
     ) {
-      winner = firstSquareSymbol;
+      winner = players[firstSquareSymbol];
     }
   };
 
@@ -79,13 +83,33 @@ export default function CoreComp() {
     setGameTurns([]);
   }
 
+  function handlePlayerNameChange(symbol, newName) {
+    setPlayers(prevPlayers => {
+      return {
+        ...prevPlayers,
+        [symbol]: newName
+      };
+    });
+  };
+
   return (
     <>
       <section className="w-[26rem] h-[30rem] bg-yellow-200 rounded-md drop-shadow-lg p-4">
 
         <ol className="list-none flex justify-between font-roboto  text-slate-800">
-            <Player initialName="player1" symbol="X" isActive={activePlayer === "X"}></Player>
-            <Player initialName="player2" symbol="O" isActive={activePlayer === "O"}></Player>
+            <Player 
+              initialName="player1" 
+              symbol="X"
+              onChangeName={handlePlayerNameChange} 
+              isActive={activePlayer === "X"}>
+            </Player>
+
+            <Player 
+              initialName="player2" 
+              symbol="O"
+              onChangeName={handlePlayerNameChange} 
+              isActive={activePlayer === "O"}>
+            </Player>
         </ol>
 
         <div className="h-full m-0 p-0 flex items-center justify-center ">
